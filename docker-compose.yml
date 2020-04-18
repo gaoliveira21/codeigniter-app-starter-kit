@@ -1,0 +1,11 @@
+version: "3"
+services:
+  web:
+    image: gaoliveira21/php72-apache
+    container_name: codeigniter_app
+    volumes:
+      - ./default.conf:/etc/apache2/sites-available/default.conf
+      - .:/var/www/html/app
+    ports:
+      - "8080:80"
+      - "443:443"
