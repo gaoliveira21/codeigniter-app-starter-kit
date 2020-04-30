@@ -1,6 +1,6 @@
 version: "3"
 services:
-  web:
+  apache:
     image: gaoliveira21/php72-apache
     container_name: codeigniter_app
     volumes:
@@ -9,3 +9,12 @@ services:
     ports:
       - "8080:80"
       - "443:443"
+  mysql:
+    image: mysql
+    container_name: mysql_db
+    volumes:
+      - ./data/mysql:/var/www/html/app/data/mysql
+    ports: 
+      - "3306:3306"
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
